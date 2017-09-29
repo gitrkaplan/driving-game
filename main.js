@@ -26,7 +26,6 @@ class Car {
       car.move()
     }, 16)
   }
-
   move() {
     switch (this.direction) {
       case 'South':
@@ -61,7 +60,9 @@ function startCar() {
     console.log('Car started!')
   }
   else {
-    console.log('Car already started.')
+    clearInterval(intervalId)
+    intervalId = null
+    console.log('Car stopping.')
   }
 }
 
