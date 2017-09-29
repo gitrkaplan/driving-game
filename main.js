@@ -26,12 +26,7 @@ class Car {
       car.move()
     }, 16)
   }
-  turn(direction) {
-    this.direction = direction
-  }
-  accelerate(amount) {
-    this.speed = amount
-  }
+
   move() {
     switch (this.direction) {
       case 'South':
@@ -54,22 +49,6 @@ class Car {
 function onKeyDown(event) {
   var keyCode = event.keyCode
   switch (keyCode) {
-    case 68:
-      keyD = true
-      console.log('D')
-      break
-    case 83:
-      keyS = true
-      console.log('S')
-      break
-    case 65:
-      keyA = true
-      console.log('A')
-      break
-    case 87:
-      keyW = true
-      console.log('W')
-      break
     case 32:
       space = true
       startCar()
