@@ -51,6 +51,31 @@ class Car {
   }
 }
 
+function onKeyDown(event) {
+  var keyCode = event.keyCode
+  switch (keyCode) {
+    case 68:
+      keyD = true
+      console.log('D')
+      break
+    case 83:
+      keyS = true
+      console.log('S')
+      break
+    case 65:
+      keyA = true
+      console.log('A')
+      break
+    case 87:
+      keyW = true
+      console.log('W')
+      break
+    case 32:
+      space = true
+      startCar()
+  }
+}
+
 function startCar() {
   if (intervalId === null) {
     Car.start(porsche)
@@ -61,7 +86,7 @@ function startCar() {
   }
 }
 
-const porsche = new Car(sportsCar, 'East', 5, [0, 0])
+const porsche = new Car(sportsCar, 'South', 5, [0, 0])
 
 window.onload = function () {
   alert('Start your car using the "space bar"!')
