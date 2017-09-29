@@ -62,7 +62,7 @@ function startCar() {
   else {
     clearInterval(intervalId)
     intervalId = null
-    console.log('Car stopping.')
+    console.log('Car stopped.')
   }
 }
 
