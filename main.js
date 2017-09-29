@@ -1,25 +1,25 @@
-const car = document.createElement('img')
-car.setAttribute('src', 'car.png')
-car.setAttribute('id', 'car')
+const sportsCar = document.createElement('img')
+sportsCar.setAttribute('src', 'car.png')
+sportsCar.setAttribute('id', 'car')
 
 const road = document.createElement('div')
 road.setAttribute('id', 'road')
 
 document.body.appendChild(road)
-road.appendChild(car)
+road.appendChild(sportsCar)
 
 document.addEventListener('keydown', onKeyDown, false)
 
 let intervalId = null
 
 class Car {
-  constructor(direction, speed, location) {
+  constructor(carType, direction, speed, location) {
     this.direction = direction
     this.speed = speed
     this.location = location
     const [x, y] = location
-    car.style.left = x + 'px;'
-    car.style.top = y + 'px;'
+    carType.style.left = x + 'px'
+    carType.style.top = y + 'px'
   }
   static start(car) {
     intervalId = setInterval(function () {
@@ -34,10 +34,10 @@ class Car {
   }
   move() {
     switch (this.direction) {
-      case 'North':
+      case 'South':
         this.location[1] += this.speed
         break
-      case 'South':
+      case 'North':
         this.location[1] -= this.speed
         break
       case 'East':
@@ -46,35 +46,10 @@ class Car {
       case 'West':
         this.location[0] -= this.speed
     }
+    sportsCar.style.left = this.location[0] + 'px'
+    sportsCar.style.top = this.location[1] + 'px'
   }
 }
-
-function onKeyDown(event) {
-  var keyCode = event.keyCode
-  switch(keyCode){
-    case 68:
-      keyD = true
-      console.log('D')
-      break
-    case 83:
-      keyS = true
-      console.log('S')
-      break
-    case 65:
-      keyA = true
-      console.log('A')
-      break
-    case 87:
-      keyW = true
-      console.log('W')
-      break
-    case 32:
-      space = true
-      startCar()
-  }
-}
-
-const porsche = new Car('South', 5, [0, 0])
 
 function startCar() {
   if (intervalId === null) {
@@ -85,6 +60,8 @@ function startCar() {
     console.log('Car already started.')
   }
 }
+
+const porsche = new Car(sportsCar, 'East', 5, [0, 0])
 
 window.onload = function () {
   alert('Start your car using the "space bar"!')
